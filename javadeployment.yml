@@ -22,8 +22,10 @@ spec:
         app: javaweb
     spec:
       containers:
-      - name: javacontainer
+      imagePullSecret:
+      - name: dockerreposecret
         image: devopskarthikl/javawebapp:9
+        name: javacontainer
         ports:
         - containerPort: 9090
 ---
