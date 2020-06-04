@@ -22,7 +22,7 @@ spec:
         app: javaweb
     spec:
       imagePullSecrets:
-      - name: dockerreposecret
+      - name: dockerrepass
       containers:
       - name: javacontainer
         image: 172.31.11.149:8084/javawebapp:6
