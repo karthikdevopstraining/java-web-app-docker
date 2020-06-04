@@ -1,17 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
-metedata:
+metadata:
   name: javadeployment
   namespace: flipkart
 spec:
   replicas: 2
   selector:
-    matchLabel:
+    matchLabels:
       app: javaweb
-  type: RollingUpdate
-    rollingupdate:
-      maxSurge:1
-      maxUnavaliable: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   minReadySeconds: 30
   template:
     metadata:
@@ -22,9 +23,9 @@ spec:
     spec:
       containers:
       - name: javacontainer
-        image: devopskarthikl/javawebapp:3
+        image: devopskarthikl/javawebapp:9
         ports:
-        - contaierPort: 8080
+        - containerPort: 9090
 ---
 
 apiVersion: v1
@@ -37,5 +38,5 @@ spec:
   selector:
     app: javaweb
   ports:
-  - port: 80 
-    targetPort: 8080
+  - port: 80
+    targetPort: 9090
