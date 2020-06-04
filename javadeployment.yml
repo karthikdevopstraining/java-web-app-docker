@@ -21,11 +21,11 @@ spec:
       labels:
         app: javaweb
     spec:
-      containers:
       imagePullSecrets:
       - name: dockerreposecret
-        image: 172.31.11.149:8084/javawebapp:6
+      containers:
         name: javacontainer
+        image: 172.31.11.149:8084/javawebapp:6
         ports:
         - containerPort: 9090
 ---
